@@ -43,4 +43,5 @@ const Nav = () => {
     </NavWrapper>
   );
 };
+
 export default Nav;
