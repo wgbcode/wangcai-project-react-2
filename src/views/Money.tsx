@@ -25,7 +25,25 @@ const TagsSection = styled.section`
     margin-top: 7px;
   }
 `;
-const NotesSection = styled.section``;
+const NotesSection = styled.section`
+  font-size: 14px;
+  padding: 10px 16px;
+  > label {
+    display: flex;
+    align-items: center;
+    > span {
+      margin-right: 16px;
+      white-space: nowrap;
+    }
+    > input {
+      display: block;
+      width: 100%;
+      height: 70px;
+      background: #f5f5f5;
+      border: none;
+    }
+  }
+`;
 const CategorySection = styled.section``;
 const NumberSection = styled.section``;
 
@@ -44,7 +62,7 @@ export default function Money() {
       <NotesSection>
         <label>
           <span>备注</span>
-          <input type="text" />
+          <input type="text" placeholder="在这是添加备注" />
         </label>
       </NotesSection>
       <CategorySection>
