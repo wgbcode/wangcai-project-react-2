@@ -13,7 +13,7 @@ const Wrapper = styled.section`
       padding: 21px 70px;
       position: relative;
       &.selected::after {
-        content: "";
+        content: ""
         display: block;
         height: 3px;
         background: red;
@@ -48,5 +48,4 @@ const CategorySection: React.FC = () => {
     </Wrapper>
   );
 };
-
 export default CategorySection;
