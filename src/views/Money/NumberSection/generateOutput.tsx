@@ -21,6 +21,7 @@ const generateOutput = (text: string, output = "0") => {
           return output + ".";
         } else return output;
       }
+    // eslint-disable-next-line no-fallthrough
     case "删除":
       if (output.length === 1) {
         return "0";

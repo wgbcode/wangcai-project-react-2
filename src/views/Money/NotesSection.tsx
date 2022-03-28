@@ -9,7 +9,6 @@ const Wrapper = styled.section`
     align-items: center;
     > span {
       margin-right: 16px;
-      white-space: nowrap;
     }
     > input {
       display: block;
@@ -41,13 +40,19 @@ const Wrapper = styled.section`
 // };
 
 // 非受控组件 defaultValue
-const NotesSection: React.FunctionComponent = () => {
-  const [note, setNote] = useState("");
+
+type Props = {
+  value: string;
+  onChange: (value: string) => void;
+};
+
+const NotesSection: React.FunctionComponent<Props> = (props) => {
+  const note = props.value;
   const refInput = useRef<HTMLInputElement>(null);
   console.log(note);
   const x = () => {
     if (refInput.current !== null) {
-      setNote(refInput.current.value);
+      props.onChange(refInput.current.value);
     }
   };
   return (

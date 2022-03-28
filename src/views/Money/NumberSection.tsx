@@ -2,22 +2,32 @@ import React, { useState } from "react";
 import generateOutput from "./NumberSection/generateOutput";
 import Wrapper from "./NumberSection/Wrapper";
 
-const NumberSection: React.FC = () => {
-  const [output, _setOutput] = useState("0");
+type Props = {
+  value: number;
+  onChange: (value: number) => void;
+  onOK?: () => void;
+};
+
+const NumberSection: React.FC<Props> = (props) => {
+  const output = props.value.toString();
   const setOutput = (output: string) => {
+    let value;
     if (output.length > 16) {
-      output.slice(0, 16);
+      value = parseFloat(output.slice(0, 16));
     } else {
-      _setOutput(output);
+      value = parseFloat(output);
     }
+    props.onChange(value);
   };
-  const X = (e: React.MouseEvent) => {
+  const onClickButtonWrapper = (e: React.MouseEvent) => {
     const text = (e.target as HTMLButtonElement).textContent;
     if (text === null) {
       return;
     }
     if (text === "OK") {
-      // some code
+      if (props.onOK) {
+        props.onOK();
+      }
       return;
     }
     if ("0123456789.".split("").concat(["删除", "清空"]).indexOf(text) >= 0) {
@@ -27,7 +37,7 @@ const NumberSection: React.FC = () => {
   return (
     <Wrapper>
       <div className="output">{output}</div>
-      <div className="pad clearfix" onClick={X}>
+      <div className="pad clearfix" onClick={onClickButtonWrapper}>
         <button>1</button>
         <button>2</button>
         <button>3</button>
