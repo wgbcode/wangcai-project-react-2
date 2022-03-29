@@ -37,3 +37,15 @@ button{
   height: 1em;
   display: inline-block; // 设置 svg 默认是文字
 }
+
+.clearfix::after{
+  content:"";
+  display: block;
+  clear: both;
+}
+
+.onLine{
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
