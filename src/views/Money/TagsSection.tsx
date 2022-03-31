@@ -25,15 +25,16 @@ const Wrapper = styled.section`
       }
     }
   }
-  > button {
+`;
+
+const Button = styled.button`
     background: none;
     border: none;
     border-bottom: 1px solid #333;
     padding: 2px 4px;
     color: #666;
     margin-top: 7px;
-  }
-`;
+  `
 
 type Props = {
   value: number[];
@@ -73,7 +74,7 @@ const TagsSection: React.FC<Props> = (props) => {
           </li>
         ))}
       </ol>
-      <button onClick={onAddTag}>新增标签</button>
+      <Button onClick={onAddTag}>新增标签</Button>
     </Wrapper>
   );
 };

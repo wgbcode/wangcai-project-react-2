@@ -50,7 +50,7 @@ function Tags() {
               <span className="onLine">
                 {tag.id}:{tag.name}
               </span>
-              <Icon name="tagArrows" />
+              <Icon name="left" />
             </Link>
           </li>
         ))}
