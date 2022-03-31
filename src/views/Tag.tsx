@@ -1,10 +1,13 @@
 import Button from "components/Button";
 import Icon from "components/Icon";
+import Input from "components/Input";
 import Layout from "components/Layout";
 import React from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import useTags from "useTag";
+import Center from "components/Center";
+import Span from "components/Span";
 
 const TopBar = styled.header`
   display: flex;
@@ -13,6 +16,15 @@ const TopBar = styled.header`
   line-height: 20px;
   padding: 14px;
   background: white;
+`;
+
+const InputWrapper = styled.div`
+  background: white;
+  margin-top: 8px;
+  padding: 14px;
+  input {
+    height: 44px;
+  }
 `;
 
 type Param = {
@@ -29,14 +41,14 @@ const Tag: React.FC = (props) => {
         <span>编辑标签</span>
         <Icon />
       </TopBar>
-      <div>
-        {" "}
-        <label>
-          <span>标签名</span>
-          <input type="text" placeholder="标签名" />
-        </label>
-      </div>
-      <Button>删除标签</Button>
+      <InputWrapper>
+        <Input label="标签名" type="text" placeholder="标签名" value={tag.name}/>
+      </InputWrapper>
+      <Center>
+        <Span />
+        <Span />
+        <Button>删除标签</Button>
+      </Center>
     </Layout>
   );
 };

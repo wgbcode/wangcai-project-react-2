@@ -1,4 +1,6 @@
+import Center from "components/Center";
 import Icon from "components/Icon";
+import Span from "components/Span";
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -28,15 +30,8 @@ const Button = styled.button`
   border-radius: 4px;
 `;
 
-const Center = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
-const Span = styled.div`
-  height: 27px;
-`;
+
+
 
 function Tags() {
   // eslint-disable-next-line
