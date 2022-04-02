@@ -1,6 +1,5 @@
 import React, {  SVGAttributes } from "react";
 import cs from "classnames"
-import { css } from "styled-components";
 
 let importAll = (requireContext: __WebpackModuleApi.RequireContext) =>
   requireContext.keys().forEach(requireContext);

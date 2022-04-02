@@ -31,16 +31,14 @@ const Button = styled.button`
 `;
 
 
-
-
 function Tags() {
   // eslint-disable-next-line
-  const { tags, setTags } = useTags();
+  const { tags, addTag } = useTags();
   return (
     <Layout>
       <TagList>
         {tags.map((tag) => (
-          <li key={tag.id}>
+          <li key={tag.name}>
             <Link to={"/tags/" + tag.id}>
               <span className="onLine">
                 {tag.id}:{tag.name}
@@ -53,7 +51,7 @@ function Tags() {
       <Center>
         <Span />
         <Span />
-        <Button>新增标签</Button>
+        <Button onClick = {addTag}>新增标签</Button>
       </Center>
     </Layout>
   );
