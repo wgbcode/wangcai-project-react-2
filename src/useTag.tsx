@@ -25,17 +25,10 @@ const useTags = () => {
     return index;
   };
   const updateTag = (id: number, obj: { name: string }) => {
-    // tags 是不可变数据，不能直接更改。
-    let cloneTags = JSON.parse(JSON.stringify(tags));
-    const index = findTagIndex(id);
-    cloneTags.splice(index, 1, { id, name: obj.name });
-    setTags(cloneTags);
+    setTags(tags.map((tag) => (tag.id === id ? { id, name: obj.name } : tag)));
   };
   const deleteTag = (id: number) => {
-    let cloneTags = JSON.parse(JSON.stringify(tags));
-    const index = findTagIndex(id);
-    cloneTags.splice(index, 1);
-    setTags(cloneTags);
+    setTags(tags.filter((tag) => tag.id !== id));
   };
   return { tags, setTags, findTag, findTagIndex, updateTag, deleteTag };
 };

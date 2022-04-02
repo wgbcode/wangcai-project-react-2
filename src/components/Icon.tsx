@@ -1,7 +1,6 @@
-import React from "react";
-// require("components/Icons/tags.svg"); // svgo-loader => svg-sprite-loader
-// require("components/Icons/money.svg");
-// require("components/Icons/statistics.svg");
+import React, {  SVGAttributes } from "react";
+import cs from "classnames"
+import { css } from "styled-components";
 
 let importAll = (requireContext: __WebpackModuleApi.RequireContext) =>
   requireContext.keys().forEach(requireContext);
@@ -13,11 +12,12 @@ try {
 
 type Props = {
   name?: string;
-};
+} & React.SVGAttributes<SVGElement>;
 
 const Icon = (props: Props) => {
+  const { name, children, className, ...rest } = props;
   return (
-    <svg className="icon">
+    <svg className={cs('icon',className)} {...rest}>
       {props.name && <use xlinkHref={"#" + props.name} />}
     </svg>
   );
