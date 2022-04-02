@@ -31,9 +31,9 @@ type Param = {
   id: string;
 };
 const Tag: React.FC = (props) => {
-  const { findTag } = useTags();
-  let { id } = useParams<Param>();
-  let tag = findTag(parseInt(id));
+  const { findTag,updateTag } = useTags();
+  let { id: idString } = useParams<Param>(); // 获取 id，并命名为 idString。
+  let tag = findTag(parseInt(idString));
   return (
     <Layout>
       <TopBar>
@@ -42,7 +42,15 @@ const Tag: React.FC = (props) => {
         <Icon />
       </TopBar>
       <InputWrapper>
-        <Input label="标签名" type="text" placeholder="标签名" value={tag.name}/>
+        <Input
+          label="标签名"
+          type="text"
+          placeholder="标签名"
+          value={tag.name}
+          onChange={(e) => {
+            updateTag(tag.id, { name: e.target.value });
+          }}
+        />
       </InputWrapper>
       <Center>
         <Span />
