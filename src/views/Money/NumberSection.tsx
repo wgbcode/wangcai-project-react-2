@@ -32,7 +32,6 @@ const NumberSection: React.FC<Props> = (props) => {
       return;
     }
     if ("0123456789.".split("").concat(["删除", "清空"]).indexOf(text) >= 0) {
-      console.log("返回值：" + generateOutput(text, output));
       setOutput(generateOutput(text, output));
     }
   };
