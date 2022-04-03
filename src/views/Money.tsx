@@ -1,3 +1,4 @@
+import useRecords from "components/hooks/useRecords";
 import React, { useState } from "react";
 import styled from "styled-components";
 import Layout from "../components/Layout";
@@ -11,28 +12,28 @@ const MyLayout = styled(Layout)`
   flex-direction: column;
 `;
 
+const defaultFormData = {
+  tagIds: [] as number[],
+  note: "",
+  category: "-" as Category,
+  amount: 0,
+};
 type Category = "-" | "+";
-
 function Money() {
-  const [selected, setSelected] = useState({
-    tagIds: [] as number[],
-    note: "",
-    category: "-" as Category,
-    amount: 0,
-  });
+  const [selected, setSelected] = useState(defaultFormData);
+  const { addRecord } = useRecords();
   const onChange = (obj: Partial<typeof selected>) => {
     // Partial 可选择 selected 的部分类型
     setSelected({ ...selected, ...obj });
   };
+  const submit = () => {
+    if (addRecord(selected)) {
+      alert("保存成功");
+      setSelected(defaultFormData);
+    }
+  };
   return (
     <MyLayout>
-      {selected.tagIds.join(",")}
-      <hr />
-      {selected.note}
-      <hr />
-      {selected.category}
-      <hr />
-      {selected.amount}
       <TagsSection
         value={selected.tagIds}
         onChange={(tagIds) => onChange({ tagIds })}
@@ -48,7 +49,7 @@ function Money() {
       <NumberSection
         value={selected.amount}
         onChange={(amount) => onChange({ amount })}
-        onOK={() => {}}
+        onOK={submit}
       />
     </MyLayout>
   );

@@ -4,7 +4,7 @@ import Span from "components/Span";
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import useTags from "useTag";
+import useTags from "components/hooks/useTag";
 import Layout from "../components/Layout";
 
 const TagList = styled.ol`

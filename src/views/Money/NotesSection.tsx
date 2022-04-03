@@ -20,7 +20,6 @@ type Props = {
 
 const NotesSection: React.FunctionComponent<Props> = (props) => {
   const note = props.value;
-  console.log(note);
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     props.onChange(e.target.value);
   };

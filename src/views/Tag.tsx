@@ -5,7 +5,7 @@ import Layout from "components/Layout";
 import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
-import useTags from "useTag";
+import useTags from "components/hooks/useTag";
 import Center from "components/Center";
 import Span from "components/Span";
 
