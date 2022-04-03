@@ -4,7 +4,6 @@ import styled from "styled-components";
 const Wrapper = styled.section`
   font-size: 24px;
   color: #000000;
-  background: #c4c4c4;
   > ul {
     display: flex;
     > li {
@@ -42,9 +41,9 @@ const CategorySection: React.FC<Props> = (props) => {
         {/* c 已声明是字符串，不用再加 "" */}
         {categoryList.map((c) => (
           <li
+            key={c}
             onClick={() => props.onChange(c)}
             className={category === c ? "selected" : ""}
-            key={c}
           >
             {categoryMap[c]}
           </li>

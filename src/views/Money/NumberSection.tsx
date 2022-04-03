@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import generateOutput from "./NumberSection/generateOutput";
 import Wrapper from "./NumberSection/Wrapper";
 
@@ -9,18 +9,16 @@ type Props = {
 };
 
 const NumberSection: React.FC<Props> = (props) => {
-  const output = props.value.toString();
+  const [output, _setOutput] = useState(props.value.toString());
   const setOutput = (output: string) => {
-    let value;
+    let newOutput: string;
     if (output.length > 16) {
-      value = parseFloat(output.slice(0, 16));
-    } else if (output[output.length - 1] === ".") {
-      value = parseFloat(output);
+      newOutput = output.slice(0, 16);
     } else {
-      value = parseFloat(output);
-      console.log(value);
+      newOutput = output;
     }
-    props.onChange(value);
+    _setOutput(newOutput);
+    props.onChange(parseFloat(newOutput));
   };
   const onClickButtonWrapper = (e: React.MouseEvent) => {
     const text = (e.target as HTMLButtonElement).textContent;
