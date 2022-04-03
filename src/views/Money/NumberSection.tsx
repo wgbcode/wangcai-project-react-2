@@ -14,8 +14,11 @@ const NumberSection: React.FC<Props> = (props) => {
     let value;
     if (output.length > 16) {
       value = parseFloat(output.slice(0, 16));
+    } else if (output[output.length - 1] === ".") {
+      value = parseFloat(output);
     } else {
       value = parseFloat(output);
+      console.log(value);
     }
     props.onChange(value);
   };
@@ -31,6 +34,7 @@ const NumberSection: React.FC<Props> = (props) => {
       return;
     }
     if ("0123456789.".split("").concat(["删除", "清空"]).indexOf(text) >= 0) {
+      console.log("返回值：" + generateOutput(text, output));
       setOutput(generateOutput(text, output));
     }
   };

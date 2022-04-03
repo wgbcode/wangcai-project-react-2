@@ -16,11 +16,11 @@ const generateOutput = (text: string, output = "0") => {
         return output + text;
       }
     case ".":
-      if (text === ".") {
-        if (output.indexOf(".") === -1) {
-          return output + ".";
-        } else return output;
-      }
+      if (output.indexOf(".") === -1) {
+        console.log("执行了")
+        console.log(output + ".");
+        return output + ".";
+      } else return output;
     // eslint-disable-next-line no-fallthrough
     case "删除":
       if (output.length === 1) {
