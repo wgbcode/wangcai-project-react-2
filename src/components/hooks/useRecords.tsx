@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useUpdate from "./useUpdate";
 
-type RecordItem = {
+export type RecordItem = {
   tagIds: number[];
   note: string;
   category: "+" | "-";
@@ -23,7 +23,7 @@ const useRecords = () => {
 
   const addRecord = (newRecord: newRecordItem) => {
     if (newRecord.amount <= 0) {
-      alert("请输入金额")
+      alert("请输入金额");
       return false;
     }
     if (newRecord.tagIds.length === 0) {
