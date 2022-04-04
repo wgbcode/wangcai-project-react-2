@@ -11,6 +11,7 @@ const Wrapper = styled.section`
       text-align: center;
       padding: 21px 70px;
       position: relative;
+      white-space:nowrap;
       &.selected::after {
         content: "";
         display: block;
